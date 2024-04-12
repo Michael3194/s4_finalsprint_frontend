@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../auth/AuthContext';
+import { useAuth } from '../path/to/AuthContext'; // Update the path
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -13,9 +13,12 @@ const LoginPage = () => {
     event.preventDefault();
 
     try {
-      console.log('Logging in...');
-      await login(username, password);
-      navigate('/admin'); // Assume successful login redirects to /admin
+      const user = await login(username, password);
+      if (user.role === 'ADMIN') {
+        navigate('/admin'); // Redirect to /admin if user is ADMIN
+      } else {
+        navigate('/user'); // Redirect to /user if user is NORMAL
+      }
     } catch (error) {
       console.error('Error:', error);
       setError('Login failed - Please try again');

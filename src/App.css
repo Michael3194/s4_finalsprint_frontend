@@ -55,3 +55,28 @@
   border: 1px solid #1e20ab;
   border-radius: 5px;
 }
+
+.nav-bar ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  background-color: #1e20ab;
+  padding: 15px 0;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-bar a:hover {
+  color: yellow;
+}
+
+.nav-bar {
+  margin-bottom: 30px;
+}
+
+.heading {
+  text-align: center;
+}
