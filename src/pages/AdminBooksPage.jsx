@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/navbar';
 
 const AdminBooksPage = () => {
   const { user } = useAuth();
@@ -83,6 +84,7 @@ const AdminBooksPage = () => {
 
   return (
     <div>
+      <Navbar />
       <h1 className='heading'>Admin Books Page</h1>
       {books.map((book) => (
         <div

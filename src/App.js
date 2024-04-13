@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import AdminHomePage from './pages/AdminHomePage';
 import AdminBooksPage from './pages/AdminBooksPage';
 import AdminAuthorsPage from './pages/AdminAuthorsPage';
+import UserHomePage from './pages/UserHomePage';
 import './App.css';
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
           <Route
             path='/admin/authors'
             element={<AdminAuthorsPage />}
+          />
+          <Route
+            path='/user'
+            element={<UserHomePage />}
           />
         </Routes>
       </Router>

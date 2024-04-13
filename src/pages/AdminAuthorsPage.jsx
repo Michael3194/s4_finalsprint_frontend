@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import NavBar from '../components/navbar';
 
 const AdminAuthorsPage = () => {
   const [authors, setAuthors] = useState([]);
@@ -88,6 +89,7 @@ const AdminAuthorsPage = () => {
 
   return (
     <div>
+      <NavBar />
       <h1 className='heading'>Admin Authors Page</h1>
       {authors.map((author) => (
         <div
