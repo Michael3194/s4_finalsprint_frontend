@@ -96,3 +96,8 @@
   align-items: center;
   background-color: rgb(227, 227, 248);
 }
+
+.book-card h2 {
+  display: inline;
+  margin-right: 4px;
+}
