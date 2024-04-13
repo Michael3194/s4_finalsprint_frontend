@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import LogoutButton from './LogoutButton';
 
 const navbar = () => {
   return (
@@ -16,6 +17,9 @@ const navbar = () => {
           </li>
           <li>
             <Link to='/admin/authors'>Authors</Link>{' '}
+          </li>
+          <li>
+            <LogoutButton />
           </li>
         </ul>
       </nav>

@@ -116,3 +116,24 @@
   align-items: center;
   background-color: rgb(227, 227, 248);
 }
+
+.user-nav {
+  margin-bottom: 30px;
+  background-color: #1e20ab;
+  padding: 15px 0;
+}
+
+.user-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.user-nav a:hover {
+  color: yellow;
+}
+
+.user-nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
