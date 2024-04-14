@@ -6,27 +6,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // const login = async (username, password) => {
-  //   try {
-  //     const response = await axios.post('http://localhost:8080/login', {
-  //       username,
-  //       password,
-  //     });
-
-  //     console.log('trying the login endpoint');
-
-  //     if (response.status === 200) {
-  //       const userData = response.data;
-  //       setUser(userData);
-  //       console.log('returning userData', userData);
-  //       return userData; // Return user data after successful login
-  //     }
-  //   } catch (error) {
-  //     console.error('Login error:', error);
-  //     throw error; // Throw error for unsuccessful login
-  //   }
-  // };
-
   const login = async (username, password) => {
     try {
       const response = await axios.post('http://localhost:8080/login', {
@@ -44,13 +23,15 @@ export const AuthProvider = ({ children }) => {
         return userData; // Return user data after successful login
       }
     } catch (error) {
+      // Handle login errors
       console.error('Login error:', error);
-      throw error; // Throw error for unsuccessful login
+      throw error;
     }
   };
 
   const logout = () => {
-    setUser(null); // Clear user state on logout
+    // Clear the user data on logout
+    setUser(null);
   };
 
   return (

@@ -1,4 +1,3 @@
-// import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import Navbar from '../components/navbar';
@@ -8,6 +7,7 @@ const AdminHomePage = () => {
 
   if (!user || user.role !== 'ADMIN') {
     // Redirect or handle unauthorized access
+
     return (
       <div>
         <p>You do not have permission to access this page.</p>
