@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
+import AddBookForm from '../components/AddBookForm';
 
 const AdminBooksPage = () => {
   const { user } = useAuth();
@@ -84,12 +85,15 @@ const AdminBooksPage = () => {
     }
   };
 
+  const handleAddBook = (newBook) => {
+    setBooks((prevBooks) => [...prevBooks, newBook]); // Add the new book to the existing books array
+  };
+
   return (
     <div>
       <Navbar />
-
       <h1 className='heading'>Admin Books Page</h1>
-
+      <AddBookForm onAddBook={handleAddBook} />{' '}
       {books.map((book) => (
         <div
           key={book.id}
