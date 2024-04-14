@@ -24,11 +24,13 @@ const AdminBooksPage = () => {
             const authorResponse = await axios.get(
               `http://localhost:8080/author/${book.authorId}`
             );
+
             const authorData = authorResponse.data;
 
             const genreResponse = await axios.get(
               `http://localhost:8080/genre/${book.genreId}`
             );
+
             const genreData = genreResponse.data;
 
             return {
@@ -43,7 +45,6 @@ const AdminBooksPage = () => {
         setLoading(false);
       } catch (error) {
         console.error('Error fetching books:', error);
-        // Handle error, e.g., redirect to login page
         navigate('/');
       }
     };
@@ -65,6 +66,7 @@ const AdminBooksPage = () => {
       };
 
       await axios.put(`http://localhost:8080/book/${bookId}`, updatedBook);
+
       setBooks((prevBooks) => {
         return prevBooks.map((book) => {
           if (book.id === bookId) {
@@ -73,19 +75,21 @@ const AdminBooksPage = () => {
               title: editedTitle,
             };
           }
+
           return book;
         });
       });
     } catch (error) {
       console.error('Error updating book title:', error);
-      // Handle error, e.g., display error message
     }
   };
 
   return (
     <div>
       <Navbar />
+
       <h1 className='heading'>Admin Books Page</h1>
+
       {books.map((book) => (
         <div
           key={book.id}
@@ -96,11 +100,12 @@ const AdminBooksPage = () => {
               <h2>{book.title}</h2>
               <button onClick={() => setEditedBookId(book.id)}>Edit</button>
             </div>
+
             <p>Author: {book.author.firstName + ' ' + book.author.lastName}</p>
             <p>Genre: {book.genre.name}</p>
             <p>Page Count: {book.pageCount}</p>
-            {/* Add more book details as needed */}
           </div>
+
           {editedBookId === book.id && (
             <div className='edit-book-form'>
               <input
@@ -108,6 +113,7 @@ const AdminBooksPage = () => {
                 value={editedTitle}
                 onChange={(e) => setEditedTitle(e.target.value)}
               />
+
               <button onClick={() => handleEditTitle(book.id)}>Save</button>
             </div>
           )}

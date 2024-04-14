@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 
 const LogoutButton = () => {
@@ -8,7 +8,7 @@ const LogoutButton = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/'); // Redirect to login page after logout
+    navigate('/');
   };
 
   return <button onClick={handleLogout}>Logout</button>;
